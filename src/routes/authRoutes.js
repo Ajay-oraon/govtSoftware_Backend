@@ -9,7 +9,7 @@ const router = express.Router();
 // Register a user
 router.post("/register", async (req, res) => {
   try {
-    const { name, email, password, role,department } = req.body;
+    const { name, email, password, role, department } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = await User.create({
@@ -41,7 +41,7 @@ router.post("/login", async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
-    res.json({ message: "Login successful", token });
+    res.json({ success: true, message: "Login successful", token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
