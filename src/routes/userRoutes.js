@@ -19,7 +19,7 @@ router.post(
 router.get(
   "/users",
   authenticateToken,
-  authorizeRoles("admin"),
+  // authorizeRoles("admin"),
   userController.getAllUsers.bind(userController)
 );
 router.get(
