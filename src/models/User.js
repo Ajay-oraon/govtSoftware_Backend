@@ -22,11 +22,11 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    roleName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: "user",
-    },
+    // role: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   defaultValue: "user",
+    // },
     department: {
       type: DataTypes.STRING,
       allowNull: false,
