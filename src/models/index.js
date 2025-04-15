@@ -8,6 +8,6 @@ User.hasMany(Work, { foreignKey: "userId" });
 Work.belongsTo(User, { foreignKey: "userId" });
 
 Role.hasMany(User, { foreignKey: "roleId", as: "users" });
-User.belongsTo(Role, { foreignKey: "roleId", as: "role" });
+// User.belongsTo(Role, { foreignKey: "roleId", as: "role" });
 
 module.exports = { sequelize, User, Work, Role };
