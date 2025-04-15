@@ -5,6 +5,8 @@ const authRoutes = require("./src/routes/authRoutes");
 const workRoutes = require("./src/routes/workRoutes");
 const roleRoutes = require("./src/routes/roleRoutes");
 const userRoutes = require("./src/routes/userRoutes");
+// const { sequelize, User, Role } = require('./src/models');
+
 require("dotenv").config();
 const app = express();
 app.use(express.json());
@@ -23,7 +25,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/work", workRoutes);
 app.use("/api/roles", roleRoutes);
 app.use("/api", userRoutes);
-
+//Routes for roles
+app.use("/api/roles", roleRoutes);
 sequelize
   .sync({ force: false })
   .then(() => console.log("Database synchronized"))

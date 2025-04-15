@@ -30,4 +30,11 @@ function authorizeRoles(...allowedRoles) {
   };
 }
 
-module.exports = { authenticateToken, authorizeRoles };
+const verifyAdmin = (req, res, next) => {
+  if (req.user && req.user.role && req.user.role.roleName === "admin") {
+    return next();
+  }
+  return res.status(403).json({ message: "Admins only access this route" });
+};
+
+module.exports = { authenticateToken, authorizeRoles, verifyAdmin };
